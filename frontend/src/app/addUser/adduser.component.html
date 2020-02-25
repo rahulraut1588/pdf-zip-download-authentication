@@ -1,0 +1,64 @@
+<div *ngIf="!editPage">
+  <form [formGroup]="userForm" (submit)="onSubmit($event)" >
+    <div class="row">
+      <div class="col-sm-4">
+          <input type="text" placeholder="First Name" class="form-control" formControlName="firstName" autocomplete="off">
+      </div>
+      <div class="col-sm-4">
+          <input type="text" placeholder="Last Name" class="form-control" formControlName="lastName" autocomplete="off">
+      </div>
+      <div class="col-sm-4">
+        <input type="email" placeholder="Email Address" class="form-control" formControlName="email" autocomplete="off">
+        <p *ngIf="userForm.controls.email.status == 'INVALID' && userForm.controls.email.dirty == true" class="color-danger mtb-10"> Enter valid email address</p>
+      </div>
+      <div class="col-sm-4">
+          <input type="tel" placeholder="Phone Number" class="form-control" maxlength="14" minlength="10" formControlName="phone" autocomplete="off">
+          <p *ngIf="userForm.controls.phone.status == 'INVALID' && userForm.controls.phone.dirty == true" class="color-danger mtb-10"> Enter valid phone number</p>
+      </div>
+      <div class="col-sm-6">
+          <input type="password" placeholder="Password" class="form-control" formControlName="password" autocomplete="off">
+      </div>
+      <div class="col-sm-6">
+          <input type="password" placeholder="Confirm Password" class="form-control" formControlName="cPassword" autocomplete="off">
+          <p *ngIf="(userForm.controls.cPassword.value != userForm.controls.password.value) && (userForm.controls.cPassword.dirty == true)" class="color-danger mtb-10"> Password do not match </p>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-success" [disabled]="(!userForm.valid) || (userForm.controls.cPassword.value != userForm.controls.password.value)"> Submit </button> &nbsp;&nbsp;
+      <button type="button" class="btn btn-lg btn-warning pointer" (click)="resetForm()"> Clear </button> &nbsp;&nbsp;
+      <button type="button" class="btn btn-lg btn-danger pointer" (click)="cancelForm()"> Cancel </button>
+    </div>
+  </form>
+</div>
+<div *ngIf="editPage">
+  <form [formGroup]="userForm" (submit)="onSubmit($event)" >
+    <div class="row">
+      <div class="col-sm-4">
+          <input type="text" placeholder="First Name" class="form-control" formControlName="firstName" autocomplete="off" [value]="user.firstName">
+      </div>
+      <div class="col-sm-4">
+          <input type="text" placeholder="Last Name" class="form-control" formControlName="lastName" autocomplete="off" [value]="user.lastName">
+      </div>
+      <div class="col-sm-4">
+        <input type="email" placeholder="Email Address" class="form-control" formControlName="email" autocomplete="off" [value]="user.email">
+        <p *ngIf="userForm.controls.email.status == 'INVALID' && userForm.controls.email.dirty == true" class="color-danger mtb-10"> Enter valid email address</p>
+      </div>
+      <div class="col-sm-4">
+          <input type="tel" placeholder="Phone Number" class="form-control" maxlength="14" minlength="10" formControlName="phone" autocomplete="off" [value]="user.phoneMobile">
+          <p *ngIf="userForm.controls.phone.status == 'INVALID' && userForm.controls.phone.dirty == true" class="color-danger mtb-10"> Enter valid phone number</p>
+      </div>
+      <div class="col-sm-6">
+          <input type="password" placeholder="Password" class="form-control" formControlName="password" autocomplete="off">
+      </div>
+      <div class="col-sm-6">
+          <input type="password" placeholder="Confirm Password" class="form-control" formControlName="cPassword" autocomplete="off">
+          <p *ngIf="(userForm.controls.cPassword.value != userForm.controls.password.value) && (userForm.controls.cPassword.dirty == true)" class="color-danger mtb-10"> Password do not match </p>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-success" [disabled]="(!userForm.valid) || (userForm.controls.cPassword.value != userForm.controls.password.value)"> Submit </button> &nbsp;&nbsp;
+      <button type="button" class="btn btn-lg btn-warning pointer" (click)="resetForm()"> Clear </button> &nbsp;&nbsp;
+      <button type="button" class="btn btn-lg btn-danger pointer" (click)="cancelForm()"> Cancel </button>
+    </div>
+  </form>
+</div>

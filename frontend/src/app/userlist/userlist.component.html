@@ -1,0 +1,32 @@
+<button (click)="bulkDownload(downloadArray)">Download Selected Resumes</button>
+
+<table id="userTable">
+  <thead>
+      <tr>
+        <th> Select </th>
+        <th> Name </th>
+        <th> Email </th>
+        <th> Password </th>
+        <th> Action </th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | slice:0:10; let i = index;">
+      <td>
+        <input type="checkbox" [value]="user?._id" (change)="appendUser($event)" />
+      </td>
+      <td> {{ user?.first_name }} {{user?.last_name}} </td>
+      <td> {{user?.email}} </td>
+      <td> {{ user?._id }} </td>
+      <td>
+        <button (click)="previewResume(user?._id)">Download</button> &nbsp;&nbsp;
+        <button (click)="openFile(user?._id)">Open</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<my-preview
+  *ngIf="showPreview"
+  [resumeData]="resumeData"
+  (closePopup)="closePopup()"
+> </my-preview>

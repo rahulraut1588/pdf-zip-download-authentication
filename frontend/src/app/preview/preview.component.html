@@ -1,0 +1,26 @@
+<div class="overlay">
+  <div class="container">
+    <div class="download-button">
+      <button (click)="downloadPdf()" > Download </button>
+      <button (click)="close()" class="close"> Close </button>
+    </div>
+    <div class="preview">
+      <table class="userTable" #resume>
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Password </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> {{resumeData?.firstName}} {{resumeData?.lastName}} </td>
+            <td> {{resumeData?.email}} </td>
+            <td> {{resumeData?._id}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

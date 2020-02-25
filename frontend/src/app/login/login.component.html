@@ -1,0 +1,19 @@
+<h1> This is Login Page </h1>
+<div>
+  <form [formGroup]="loginForm" (submit)="onSubmit()" >
+    <div class="row">
+      <div class="col-sm-4">
+        <input type="email" placeholder="Email Address" class="form-control" formControlName="email" autocomplete="off">
+        <p *ngIf="loginForm.controls.email.status == 'INVALID' && loginForm.controls.email.dirty == true" class="color-danger mtb-10"> Enter valid email address</p>
+      </div>
+      <div class="col-sm-6">
+          <input type="password" placeholder="Password" class="form-control" formControlName="password" autocomplete="off">
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-success" [disabled]="(!loginForm.valid)"> Submit </button> &nbsp;&nbsp;
+      <button type="button" class="btn btn-lg btn-warning pointer" (click)="resetForm()"> Clear </button> &nbsp;&nbsp;
+      <button type="button" class="btn btn-lg btn-danger pointer" (click)="cancelForm()"> Cancel </button>
+    </div>
+  </form>
+</div>

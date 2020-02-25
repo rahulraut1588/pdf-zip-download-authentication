@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  .container {
+    background: #fff;
+    padding: 15px;
+    max-width: 90%;
+    width: 100%;
+    height: 80vh;
+    margin: 5vh auto;
+    overflow-y: auto;
+
+    .download-button {
+      margin-bottom: 8px;
+      text-align: right;
+
+      button {
+        background-color: cadetblue;
+        color: #fff;
+        border: 0px;
+        padding: 4px 8px;
+        margin-left: 16px;
+      }
+
+      .close {
+        background-color: orangered;
+      }
+    }
+
+    .userTable {
+      width: 100%;
+
+      th {
+        background-color: cadetblue;
+        color: #fff;;
+      }
+
+      th, td {
+        text-align: left;
+      }
+    }
+  }
+}

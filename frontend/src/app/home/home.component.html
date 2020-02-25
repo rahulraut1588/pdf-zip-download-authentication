@@ -1,0 +1,10 @@
+<h1> This is Home Page</h1>
+<div *ngIf="!loggedInUser">
+  <h2> Logged Out </h2>
+  <button (click)="logIn()"> Login </button>
+</div>
+
+<div *ngIf="loggedInUser">
+  <h2> Logged In </h2>
+  <button (click)="logOut()"> Logout </button>
+</div>
