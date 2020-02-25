@@ -39,6 +39,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+backend/node_modules/
+frontend/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -102,3 +104,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# PDF Files
+backend/bulk/*
+backend/resume/*
+backend/bulk.zip
+backend/data.json
+
